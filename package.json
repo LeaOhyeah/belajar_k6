@@ -1,0 +1,12 @@
+{
+  "name": "belajar_k6",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Lea Ohyeah",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
