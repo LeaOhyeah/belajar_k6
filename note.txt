@@ -1,0 +1,112 @@
+++++ Menginstall K6 ++++
+install node js
+https://grafana.com/docs/k6/latest/set-up/install-k6/
+
+
+++++ Example Application ++++
+start-lampp
+node src/main.js di belajar-nodejs....
+
+
+++++ Membuat Project ++++
+npm init
+ubah type di package.json menjadi module
+install binary dan autocomplate:
+npm install k6 
+npm install --save-dev @type/k6
+
+
+++++ Script ++++
+Script merupakan file JavaScript yang berisikan kode cara melakukan performance test 
+dan juga pengaturan atau skenario test yang ingin kita lakukan
+untuk membuat script, buat folder /src dan buat file js/ts
+atau dengan
+k6 new lokasi/file.js
+
+menjalankan script dengan
+k6 run lokasi/file.js
+
+option dan default function
+Script untuk K6 terdiri dari dua bagian, yang pertama adalah Options, dan yang kedua adalah default function
+Options adalah sebuah variable yang digunakan untuk melakukan pengaturan, misal 'vus' adalah jumlah virtual user (VU), 
+dan 'duration' adalah berapa lama durasi melakukan pengujian
+
+Default function adalah function yang dijalankan oleh K6 sesuai dengan pengaturan di variable options 
+Default function akan berisi kode untuk melakukan skenario performance testing
+
+
+++++ Bagaimana k6 bekerja ++++
+pertama K6 akan membaca informasi pengaturan dari options
+contoh: menggunakan 10 virtual user, dan total durasi 30 detik
+selanjutnya K6 akan menjalankan default function sebanyak pengaturan yang sudah ditentukan
+berarti K6 akan memanggil default function secara paralel sejumlah 10 proses,
+sesuai dengan jumlah virtual user, secara terus-menerus, selama total 30 detik
+karena di default function ada kode sleep(1), yang artinya sebelum selesai, proses akan berhenti dahulu sekitar 1 detik
+(melakukan aksi 300 kali, 10 aksi user per detik, selama 30 detik)
+
+
+++++ Summary Output ++++
+Setelah K6 menjalankan performance testing dari script yang kita buat, 
+maka K6 akan menghasilkan output summary dari hasil performance testing
+Secara default, hasil output akan ditampilkan dalam console / terminal
+Namun jika kita mau, kita bisa simpan hasil output dalam bentuk file JSON dengan cara menggunakan perintah :
+k6 run file/script.js --summary-export lokasi-output.json
+Keterangan dari setiap informasi output bisa kita lihat di halaman ini :
+https://grafana.com/docs/k6/latest/using-k6/metrics/reference/ 
+
+Secara default, statistik yang digunakan untuk tiap metric dari hasil pengujian adalah :
+[avg, min, med, max, p(90), p(95)]
+Jika kita mau ubah, kita bisa ubah dengan menambahkan di options, dengan key summaryTrendStats : []
+
+
+++++ Realtime Output ++++
+Summary Output hanya akan membuat report setelah proses performance test selesai
+Jika kita butuh informasi secara realtime, kita bisa menggunakan realtime output dari K6
+Secara default, K6 bisa mengirim realtime output ke file JSON / CSV
+k6 run --out csv=test_results.csv script.js
+https://grafana.com/docs/k6/latest/results-output/real-time/csv/
+k6 run --out json=test_results.csv script.js
+https://grafana.com/docs/k6/latest/results-output/real-time/json/ 
+
+
+++++ Web Dashboard ++++
+
+
+++++ Stages ++++
+
+
+++++ HTTP Request ++++
+
+
+++++ Fail Test ++++
+
+
+++++ Checks ++++
+
+
+++++ Execution Context Variables ++++
+
+
+++++ Test Life Cycle ++++
+
+
+++++ Modules ++++
+
+
+++++ Environment Variables ++++
+
+
+++++ Scenario ++++
+
+
+++++ Metrics ++++
+
+
+++++ Thresholds ++++
+
+
+++++ JavaScript Library ++++
+
+
+++++ Penutup ++++
+

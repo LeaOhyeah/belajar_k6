@@ -1,0 +1,18 @@
+run example app:
+    start-lampp
+    node src/main.js
+
+create project k6:
+    npm init (type module)
+    npm install k6
+    npm install --save-dev @type/k6
+
+create script: k6 new lokasi/file.js
+
+run script: k6 run lokasi/file.js
+
+output file: k6 run lokasi/file.js --summary-export lokasi/file.json
+
+realtime csv: k6 run --out csv=lokasi/test_results.csv lokasi/file.js
+
+realtime json: k6 run --out json=lokasi/test_results.json lokasi/file.js
