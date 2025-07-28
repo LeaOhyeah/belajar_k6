@@ -16,3 +16,8 @@ output file: k6 run lokasi/file.js --summary-export lokasi/file.json
 realtime csv: k6 run --out csv=lokasi/test_results.csv lokasi/file.js
 
 realtime json: k6 run --out json=lokasi/test_results.json lokasi/file.js
+
+web dashboard:
+    export K6_WEB_DASHBOARD=true (selalu ada dashboard, untuk windows gunakan set)
+    export K6_WEB_DASHBOARD=false (hapus dashboard, windows gunakan set)
+    K6_WEB_DASHBOARD=true k6 run lokasi/file.js (hanya yang di run)
