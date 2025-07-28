@@ -69,13 +69,36 @@ k6 run --out json=test_results.csv script.js
 https://grafana.com/docs/k6/latest/results-output/real-time/json/ 
 
 
+steam to service: 
+Selain ke file, realtime output juga bisa dikirim ke third party service
+Hanya saja, untuk mengirim ke third party service, secara default tidak bisa dilakukan
+Kita harus membuat ulang aplikasi K6 dengan menambahkan library third party tersebut,
+pada kasus ini kita harus tahu bagaimana cara membuat aplikasi menggunakan Golang
+https://grafana.com/docs/k6/latest/results-output/real-time/ 
+
+
 ++++ Web Dashboard ++++
+K6 memiliki fitur Web Dashboard, yaitu fitur untuk melihat realtime output dan summary output ketika K6 sedang melakukan pengujian
+Untuk mengaktifkan fitur Web Dashboard, kita harus mengaktifkannya menggunakan environment variable
+https://grafana.com/docs/k6/latest/results-output/web-dashboard/ 
+
+export K6_WEB_DASHBOARD=true
+K6_WEB_DASHBOARD=true k6 run script.js
 
 
 ++++ Stages ++++
+K6 memiliki fitur untuk meningkatkan atau menurunkan virtual user ketika melakukan pengujian menggunakan atribut stages
+Dengan ini kita bisa meningkatkan jumlah user dalam durasi tertentu, dan menurunkan user dalam durasi tertentu
+https://grafana.com/docs/k6/latest/using-k6/k6-options/reference/#stages 
 
 
 ++++ HTTP Request ++++
+K6 dilengkapi dengan library bawaan untuk melakukan HTTP Test yaitu k6/http
+k6/http merupakan library yang digunakan untuk melakukan HTTP Request
+Perlu diingat bahwa library k6/http ini bukan untuk melakukan pengetesan Web Browser
+Hampir semua HTTP method didukung oleh library k6/http ini
+https://grafana.com/docs/k6/latest/javascript-api/k6-http/ 
+register.js
 
 
 ++++ Fail Test ++++
